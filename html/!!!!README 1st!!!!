@@ -1,0 +1,46 @@
+
+SWG NGE Server Webpage v1.01
+
+
+
+All Star Wars background pictures, music, and logos are registered trademarks and copyright of LucasArts and Disney. We do not recieve original credit for those trademarks and copyrights in anyway, shape, or form.
+
+
+
+Modified Webpage:
+
+I modified the webpage to add backgrounds, music(at main page), extra links, Server Online/Offline Status at Main Page (currently cant find correct port number for $portg but Login Server Status is working. If you accidently delete the port number for the Login Status, it is 10666. just put that in $portl if needed. If someone happens to find the correct port with no errors or crashes, please let us know with the correct port number).
+
+Currently I have no mysql database and oracle database experience to configure and modify the database for the Number of Players Online status so please let me know if you got this configured and how and what you did.
+
+Make sure to change the IP addresses in webpage code (not counting 127.0.0.1 in Server Status), to current IP address of VM in lower left corner of VM screen. Bring up a web browser and type in the address bar: http://(your.VM.Address.here) without the (). Then you can refresh the page when you change any of the webpage code.
+
+
+FORUMS PAGE
+-------------------------------
+MyBB v1.8.12
+
+I have also included a MyBB forums for the site as well. You will also have to add a mySQL database section for the forums before you can install it.
+
+Copy and paste this link in your browser for MyBB setup instructions and make sure to follow them correctly: https://docs.mybb.com/1.8/install/ 
+
+You will need to register a seperate account for the forums.
+
+
+
+
+May the Force Be With You.
+
+-----------------------------------------------------------------
+
+v1.01 UPDATE: 9/10/2017
+
+1.)Fixed a few links on index.php and 1 link on addnewuser.php:
+
+    a.)index.php: links for home, forums, and Register for an Account on index.php now have "/index.php", "/forums/index.php", and "/addnewuser.php" instead of http://192.168.1.XXX or http://localhost. Now user wont have to set addresses for webpage
+
+    b.) addnewuser.php> fixed "Home" link on addnewuser.php. Instead of it being http://localhost/index.php or http://192.168.1.XXX, it is now /index.php. Now user wont have to set addresses for webpage
+
+2.) Reconfigured index.php coding to bring the main page up to top of page and menu on left side of page to be the top-left instead of at midd to bottom of page due to html body coding 
+
+
