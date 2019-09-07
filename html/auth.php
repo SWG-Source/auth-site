@@ -5,7 +5,7 @@ header('Content-Type: text/html; charset=utf-8');
 // ####################### SET PHP ENVIRONMENT ###########################
 // #######################################################################
 
-ini_set('display_errors', 1);
+#ini_set('display_errors', 1);
 date_default_timezone_set('America/Chicago');
 
 include 'includes/db_connect.php';
@@ -68,9 +68,8 @@ echo json_encode($response);
 // #######################################################################
 
 $auth_content = '[' . date('m/d/Y h:i:s a') . '] ' . 'Username: ' . $username . ', Station ID: ' . $suid . ', IP: ' . $ip . "\n";
-chdir('WEBHOST_DIRECTORY_FOR_LOG_FILE ');
+chdir('./logs');
 file_put_contents('logs/auth_log.txt', $auth_content, FILE_APPEND);
-echo $result;
 die();
 
 // #######################################################################
