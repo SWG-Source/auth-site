@@ -68,8 +68,13 @@ echo json_encode($response);
 // #######################################################################
 
 $auth_content = '[' . date('m/d/Y h:i:s a') . '] ' . 'Username: ' . $username . ', Station ID: ' . $suid . ', IP: ' . $ip . "\n";
-chdir('./logs');
-file_put_contents('logs/auth_log.txt', $auth_content, FILE_APPEND);
+
+// To enable logging, give the chdir function the absolute path to your webroot directory and uncomment the following two lines.
+// Also make sure that your apache2 user owns the webroot directory and has write permissions.
+
+#chdir('WEBROOT_DIRECTORY_GOES_HERE'); // If you're running VM 2.1, chdir should be /srv/www/htdocs
+#file_put_contents('logs/auth_log.txt', $auth_content, FILE_APPEND);
+
 die();
 
 // #######################################################################
