@@ -43,8 +43,8 @@ function checkhashSSHA($salt, $password) {
 
 $username = $mysqli->real_escape_string($_POST['user_name']);
 $password = $mysqli->real_escape_string($_POST['user_password']);
-$ip = urldecode($_POST['ip']);
-$suid = urldecode($_POST['stationID']);
+$ip = $_POST['ip'];
+$suid = $_POST['stationID'];
 $user = getUserByEmailAndPassword($username, $password);
 
 // #######################################################################
