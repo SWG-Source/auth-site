@@ -20,6 +20,7 @@ return false;
 <style>
 body  {
     background-image: url("/images/darth_vader-lightsaber-star_wars.jpg");
+    background-color: black;
     background-repeat: no-repeat;
     background-attachment: fixed; 
     background-position: center;
@@ -76,5 +77,7 @@ a:active {
 </center>
 </form>
 </table>
+<br />
+<center><a href="/swgsourceclient/swgsourceclientv1.2.1.rar" download><font size="+2"><b><u>Download Client</u></b></font></a></center>
 </body>
 </html>
