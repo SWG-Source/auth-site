@@ -41,6 +41,29 @@ v1.01 UPDATE: 9/10/2017
 
     b.) addnewuser.php> fixed "Home" link on addnewuser.php. Instead of it being http://localhost/index.php or http://192.168.1.XXX, it is now /index.php. Now user wont have to set addresses for webpage
 
-2.) Reconfigured index.php coding to bring the main page up to top of page and menu on left side of page to be the top-left instead of at midd to bottom of page due to html body coding 
+2.) Reconfigured index.php coding to bring the main page up to top of page and menu on left side of page to be the top-left instead of at midd to bottom of page due to html body coding.
+------------------------------------------------------------------
+
+v2.02 UPDATE: 10/30/2019
+
+1.) Added folder "swgsourceclient" for VM owner to add his configured client in zip format to allow others to download the client.
+
+2.) Modified "addnewuser.php" file to include a download link and file location for client download in compressed file format
+------------------------------------------------------------------
+
+v2.03 UPDATE: 11/15/19
+
+1.) Cleaned up some misplaced HTML code that was out of sync on index.php
+
+	a.) Removed broken links to webpages that no longer exist but I did keep the names of those sites on the left column of index.php
+	
+	b.) Reactivated intro music but added "muted" to line of code so you can't hear the music play on index.php
+	
+	c.) Removed code and background for "Star Wars" background pic and added new code and background pic on index.php
+
+2.) Removed code and background for "Vader Lightsaber" background pic and added new code and background pic on addnewuser.php
+
+	a.) Removed link to download SWG Source Client to give the server owner an option to point to a link to download file or host file within VM
+
 
 
