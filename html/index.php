@@ -132,7 +132,7 @@ a:active {
 </article>    
 
 <h1><b><font color='#FFFFFF'><u>Server Status</u></font></b></h1>
-	<div class="sstatus">
+	<div class="status">
 		<div>
 		<table>
         <?php
@@ -149,7 +149,7 @@ a:active {
                 echo "<p><strong><font color='#FFFFFF'>Login Server: </font></strong>";
                 echo $login ? "<font color=\"green\">Online</font>" : "<font color=\"red\">Offline</font></p>";
                 echo "<p><center><strong><font color='#FFFFFF'>Game Server: </font></strong>";
-                echo $game ? "<font color=\"green\">Online</font>" : "<font color=\"red\">Offline</font></p>";
+                echo $game ? "<font color=\"green\">Online</font>" : "<font color=\"red\">Offline</font></p></center>";
         ?>
 		</table>
 		</div>
@@ -175,5 +175,6 @@ a:active {
     echo "<p><strong><font color='#FFFFFF'> Online Players:</font></strong></p><em>".$rows."<em>"; //prints out the $x number of players online
 ?>
 </center>
+</div>
 </body>
 </html>
