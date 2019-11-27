@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <title>SWG Source Server Main Page</title>
 <link rel="stylesheet" type="text/css"href="stylesheet.css">
-<meta name = "viewport" content = "width = device-width">
-<meta name = "viewport" content = "initial-scale = 1.0">
+<meta name="viewport" content="width=device-width">
+<meta name="viewport" content="initial-scale=1">
 <script type="text/javascript" language="JavaScript">
 <!--
 
@@ -55,7 +55,8 @@ article {
     overflow: hidden;
 }
 body  {
-    background-image: url('/images/star_wars_1.jpg');
+    background-color: black;
+    background-image: url("/images/stormtrooper.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -93,27 +94,34 @@ a:active {
   <ul>
     <li><b><a href="/index.php">Home</a></b></li>
     <li><b><a href="/forums/index.php">Forums</a></b></li><br>
-    <p><b><u>Useful Links</b></u></p>
+    <p><b><u>Useful Links</u></b></p>
     <li><b><a href="http://www.swgsource.com">SWG Source</a></b></li>
     <li><b><a href="https://discordapp.com/channels/366560008068005892/366560008608940035">SWG Source Discord Server</a></b></li>
-    <li><b><a href="http://forums.stellabellum.net">Stella Bellum</a></b></li>
+    <li><b><a href="#">Stella Bellum</a></b></li>
     <li><b><a href="http://www.swgpets.com">SWG Pets</a></b></li>
     <li><b><a href="http://www.swgcraft.co.uk">SWG Craft</a></b></li>
     <li><b><a href="http://www.galaxyharvester.net">Galaxy Harvester</a></b></li>
     <li><b><a href="http://www.swgjunkyard.com">SWG Junkyard</a></b></li>
     <li><b><a href="http://www.swgtools.com">SWG Tools</a></b></li>
-    <li><b><a href="http://www.swgplanner.tyger.org">SWG City Planner</a></b></li>
-    <li><b><a href="http://www.swg.activeframe.de">SWG Activeframe</a></b></li>
+    <li><b><a href="#">SWG City Planner</a></b></li>
+    <li><b><a href="#">SWG Activeframe</a></b></li>
   </ul>
 </nav>
-
-<audio src="/music/Star Wars Main Theme.mp3" autoplay></audio>
+	
+<audio muted autoplay id="myaudio">
+  <source src="/music/Star Wars Main Theme.mp3">
+</audio>
+	
+<script>
+  var audio = document.getElementById("myaudio");
+  audio.volume = 0.3;
+</script>
    <center><h1><b>WELCOME</b></h1>
    <p><b>to</b></p>
-   <p><b>SWG Source Server v1.2</b></p>
+   <p><b>SWG Source Server v2.2</b></p>
    <p><b>This is the Login frontend for your NGE server</b></p>
    <p><b>Click below to Create a New Account</b></p>
-   <p><b><a href="/addnewuser.php"><b>Register an Account</a></b></p></center>
+   <p><b><a href="/addnewuser.php"><u>Register an Account</u></a></b></p></center>
 </header>
   
 
@@ -123,18 +131,14 @@ a:active {
     <p></p>
 </article>    
 
-</div>
-
-<center>
-
-<div class="status">
-        <b><h1><font color='#FFFFFF'><u>Server Status</u></font></h1></b>
-        <div>
-        <table>
+<h1><b><font color='#FFFFFF'><u>Server Status</u></font></b></h1>
+	<div class="status">
+		<div>
+		<table>
         <?php
             $server = "127.0.0.1";
-            $portg = "";
-            $portl = "10666";
+            $portg = "44463";
+            $portl = "44453";
             $timeout = "5";
             $portm = "3306";
             
@@ -142,14 +146,15 @@ a:active {
             $game = @fsockopen("$server", $portg, $errno, $errstr, $timeout);
             $login = @fsockopen("$server", $portl, $errno, $errstr, $timeout);
 
-                echo "<p><strong><font color='#FFFFFF'>Login Server: </font></strong>";
-                echo $login ? "<font color=\"green\">Online</font>" : "<font color=\"red\">Offline</font></p>";
-                echo "<p><strong><font color='#FFFFFF'>Game Server: </font></strong>";
-                echo $game ? "<font color=\"green\">Online</font>" : "<font color=\"red\">Offline</font></p>";
-        ?>        
-                
-                
-</center>
+                echo "<p><center><strong><font color='#FFFFFF'>Login Server: </font></strong>";
+                echo $login ? "<font color=\"green\">Online</font>" : "<font color=\"red\">Offline</font></p></center>";
+                echo "<p><center><strong><font color='#FFFFFF'>Game Server: </font></strong>";
+                echo $game ? "<font color=\"green\">Online</font>" : "<font color=\"red\">Offline</font></p></center>";
+        ?>
+		</table>
+		</div>
+	</div>
+
 <center>
 <?php
 //first you need to define db info
@@ -170,6 +175,6 @@ a:active {
     echo "<p><strong><font color='#FFFFFF'> Online Players:</font></strong></p><em>".$rows."<em>"; //prints out the $x number of players online
 ?>
 </center>
-
+</div>
 </body>
 </html>
