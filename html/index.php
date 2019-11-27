@@ -146,8 +146,8 @@ a:active {
             $game = @fsockopen("$server", $portg, $errno, $errstr, $timeout);
             $login = @fsockopen("$server", $portl, $errno, $errstr, $timeout);
 
-                echo "<p><strong><font color='#FFFFFF'>Login Server: </font></strong>";
-                echo $login ? "<font color=\"green\">Online</font>" : "<font color=\"red\">Offline</font></p>";
+                echo "<p><center><strong><font color='#FFFFFF'>Login Server: </font></strong>";
+                echo $login ? "<font color=\"green\">Online</font>" : "<font color=\"red\">Offline</font></p></center>";
                 echo "<p><center><strong><font color='#FFFFFF'>Game Server: </font></strong>";
                 echo $game ? "<font color=\"green\">Online</font>" : "<font color=\"red\">Offline</font></p></center>";
         ?>
