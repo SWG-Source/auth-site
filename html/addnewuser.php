@@ -77,8 +77,7 @@ a:active {
 </center>
 </form>
 </table>
+<br />
+<center><a href="#" download><font size="+2"><b><u>>>Download Client<<</u></b></font></a></center>
 </body>
-<br>
-<center><a href="#" download><font size="+2"><b><u>>>Download Client<<</u></b></font></a><center>
-</br>
 </html>
