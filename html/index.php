@@ -92,8 +92,24 @@ a:active {
 
 <nav>
   <ul>
+	<?php
+	session_start();
+	if(isset($_SESSION['user'])) {
+		echo "Hello ".$_SESSION['user']; //display logged in username
+	}
+	?>
     <li><b><a href="/index.php">Home</a></b></li>
     <li><b><a href="/forums/index.php">Forums</a></b></li><br>
+	<?php
+	if(isset($_SESSION['user'])) {
+		echo '    <li><b><a href="/changepassword.php">Change Account Password</a></b></li><br>'; //logged in - show password option and logout
+		echo '    <li><b><a href="/logout.php">Logout</a></b></li><br>';
+	}
+	else
+	{
+		echo '    <li><b><a href="/form_login.php">Account Management</a></b></li><br>'; //not logged in - display login url
+	}
+	?>
     <p><b><u>Useful Links</u></b></p>
     <li><b><a href="http://www.swgsource.com">SWG Source</a></b></li>
     <li><b><a href="https://discordapp.com/channels/366560008068005892/366560008608940035">SWG Source Discord Server</a></b></li>
@@ -134,7 +150,7 @@ a:active {
 <h1><b><font color='#FFFFFF'><u>Server Status</u></font></b></h1>
 	<div class="status">
 		<div>
-		<table>
+		<table align="center">
         <?php
             $server = "127.0.0.1";
             $portg = "44463";
@@ -146,10 +162,10 @@ a:active {
             $game = @fsockopen("$server", $portg, $errno, $errstr, $timeout);
             $login = @fsockopen("$server", $portl, $errno, $errstr, $timeout);
 
-                echo "<p><center><strong><font color='#FFFFFF'>Login Server: </font></strong>";
-                echo $login ? "<font color=\"green\">Online</font>" : "<font color=\"red\">Offline</font></p></center>";
-                echo "<p><center><strong><font color='#FFFFFF'>Game Server: </font></strong>";
-                echo $game ? "<font color=\"green\">Online</font>" : "<font color=\"red\">Offline</font></p></center>";
+                echo "<tr><td><p><center><strong><font color='#FFFFFF'>Login Server: </font></strong>";
+                echo $login ? "<font color=\"green\">Online</font>" : "<font color=\"red\">Offline</font></p></center></td></tr>";
+                echo "<tr><td><p><center><strong><font color='#FFFFFF'>Game Server: </font></strong>";
+                echo $game ? "<font color=\"green\">Online</font>" : "<font color=\"red\">Offline</font></p></center></td></tr>";
         ?>
 		</table>
 		</div>
