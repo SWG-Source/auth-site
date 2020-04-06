@@ -28,11 +28,11 @@
 					if(strcasecmp($_SESSION['username'], $usernamejson[$ln]['username']) == 0) {
 						echo '					<option value="'.$usernamejson[$ln]['username'].'"';
 						echo ' selected="selected"';
-						echo '>'.$usernamejson[$ln]['firstname']. " " .$usernamejson[$ln]['lastname'].'</option>'.PHP_EOL;
+						echo '>'.$usernamejson[$ln]['username'].'</option>'.PHP_EOL;
 					}
 					else if($_SESSION['accesslevel'] == "superadmin") {
 						echo '					<option value="'.$usernamejson[$ln]['username'].'"';
-						echo '>'.$usernamejson[$ln]['firstname']. " " .$usernamejson[$ln]['lastname'].'</option>'.PHP_EOL;
+						echo '>'.$usernamejson[$ln]['username'].'</option>'.PHP_EOL;
 					}
 					$ln++;
 				}
