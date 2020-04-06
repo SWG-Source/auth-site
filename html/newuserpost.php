@@ -26,7 +26,7 @@ if($action=='create') {
 	username = '".$mysqli->real_escape_string($_POST['useraccountname'])."',
 	password_hash = '".$mysqli->real_escape_string($passwordEncrypted)."',
 	password_salt = '".$mysqli->real_escape_string($passwordSalt)."',
-    accesslevel = '".$mysqli->real_escape_string($_POST['accesslevel'])."'";
+    accesslevel = 'standard'";
 
     if( $mysqli->query($query) ) {
 		echo '<script>';
