@@ -9,7 +9,6 @@
 	<head>
 		<meta name = "viewport" content = "width = device-width, initial-scale = 1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 			<title>Change Password</title>
-	</head>
 	<style>
 	div.container {
     width: 90%;
@@ -75,8 +74,9 @@ a:active {
     text-decoration: underline;
 }    
 </style>
-	<center>
+	</head>
 		<body>
+	<center>
 		<form action='post_changepassword.php' method='post' border='0'>
 		<table>
 			<tr>
@@ -119,6 +119,6 @@ a:active {
 		</tr>
 		</table>
 		</form>
-		</body>
 	</center>
+		</body>
 </html>
