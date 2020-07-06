@@ -5,7 +5,6 @@ session_start();
 <title>SWG:Source | Login</title>
 <meta name = "viewport" content = "width = device-width">
 <meta name = "viewport" content = "initial-scale = 1.0">
-</head>
 <style>
 	div.container {
     width: 90%;
@@ -71,6 +70,7 @@ a:active {
     text-decoration: underline;
 }    
 </style>
+</head>
 <body>
 <center><img src="images/swgsource.png" alt="" width=200/></center>
 <form method="post" action="post_login.php">
