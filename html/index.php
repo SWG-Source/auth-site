@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>SWG Source Server Main Page</title>
+<title>SWG Server Main Page</title>
 <link rel="stylesheet" type="text/css"href="stylesheet.css">
 <meta name="viewport" content="width=device-width">
 <meta name="viewport" content="initial-scale=1">
@@ -134,8 +134,7 @@ a:active {
 </script>
    <center><h1><b>WELCOME</b></h1>
    <p><b>to</b></p>
-   <p><b>SWG Source Server v2.2</b></p>
-   <p><b>This is the Login frontend for your NGE server</b></p>
+   <p><b>SWG Source Server v3.0.2</b></p>
    <p><b>Click below to Create a New Account</b></p>
    <p><b><a href="/addnewuser.php"><u>Register an Account</u></a></b></p></center>
 </header>
@@ -147,25 +146,50 @@ a:active {
     <p></p>
 </article>    
 
-<h1><b><font color='#FFFFFF'><u>Server Status</u></font></b></h1>
+<h1><b><font color='#FFFFFF'>Server Status</font></b></h1>
 	<div class="status">
 		<div>
 		<table align="center">
         <?php
-            $server = "127.0.0.1";
-            $portg = "44463";
-            $portl = "44453";
-            $timeout = "5";
-            $portm = "3306";
-            
-            $mysql = @fsockopen("$server", $portm, $errno, $errstr, $timeout);
-            $game = @fsockopen("$server", $portg, $errno, $errstr, $timeout);
-            $login = @fsockopen("$server", $portl, $errno, $errstr, $timeout);
 
-                echo "<tr><td><p><center><strong><font color='#FFFFFF'>Login Server: </font></strong>";
-                echo $login ? "<font color=\"green\">Online</font>" : "<font color=\"red\">Offline</font></p></center></td></tr>";
-                echo "<tr><td><p><center><strong><font color='#FFFFFF'>Game Server: </font></strong>";
-                echo $game ? "<font color=\"green\">Online</font>" : "<font color=\"red\">Offline</font></p></center></td></tr>";
+
+		$data = json_decode( file_get_contents( 'status.txt' ), true );
+    		$lastUpdated = $data['lastUpdated'];
+ 
+ 		   if (time() > $lastUpdated + 70) {
+ 		       $scar = "0";
+ 		       $status = "<span style='color:red;font-weight:bold;'>Offline</span>";
+  		  } else {
+  		      $scar = "1";
+  		      $status = "<span style='color:lime;font-weight:bold;'>Online</span>";
+  		  }
+ 		
+  		  $newTime = time() - $lastUpdated;
+ 		   $requestLastUpdated = idate('s', $newTime);
+ 		
+  		  if ($scar === "1") {
+  		      $loadingState = $data['lastLoadingStateTime'];
+  		      $timediff = time() - $loadingState;
+  		  } elseif ($scar === "0") {
+  		      $timediff = time() - $lastUpdated;
+  		  }
+ 
+  		  function secondsToTime($seconds) {
+  		      $dtF = new \DateTime('@0');
+  		      $dtT = new \DateTime("@$seconds");
+  		      return $dtF->diff($dtT)->format('%a day(s), %h hour(s), %i minute(s)');
+  		  }
+ 
+  		  echo "<tr><td><p><center><font color='#FFFFFF'>" . $data['clusterName'] . " " . $status . "</font></h3><br />";
+  		  echo "<tr><td><p><center><font color='#FFFFFF'>Current Population: <strong>" . $data['totalPlayerCount'] . ",</font></strong><br />";
+  		  echo "<tr><td><p><center><font color='#FFFFFF'>Highest Population: <strong>" . $data['highestPlayerCount'] . "</font></strong><br />";
+   		 echo "<tr><td><p><center><font color='#FFFFFF'>Last Updated: " . $requestLastUpdated . " seconds ago. </font><br />";
+   		 if ($scar === "1") {
+   		     echo "<tr><td><p><center><font color='#FFFFFF'>Uptime:<br />" . secondsToTime($timediff);
+   		 } elseif ($scar === "0") {
+   		     echo "<tr><td><p><center><font color='#FFFFFF'>Downtime:</font><br />" . secondsToTime($timediff);
+  		  }
+
         ?>
 		</table>
 		</div>
