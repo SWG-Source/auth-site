@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>NomadUK SWG Server Main Page</title>
+<title>SWG Server Main Page</title>
 <link rel="stylesheet" type="text/css"href="stylesheet.css">
 <meta name="viewport" content="width=device-width">
 <meta name="viewport" content="initial-scale=1">
